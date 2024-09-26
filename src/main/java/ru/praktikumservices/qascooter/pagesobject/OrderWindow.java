@@ -1,4 +1,4 @@
-package ru.praktikum_services.qa_scooter.pages_object;
+package ru.praktikumservices.qascooter.pagesobject;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -12,33 +12,33 @@ class OrderWindow {
     //Принять куки
     private final By acceptCookieButton = By.className("App_CookieButton__3cvqF");
     //Кнопка заказать в середине страницы
-    private final By orderButtonMid = By.xpath("//*[@id=\"root\"]/div/div/div[4]/div[2]/div[5]/button");
+    private final By orderButtonMid = By.xpath(".//div[5]/button[@class ='Button_Button__ra12g Button_UltraBig__UU3Lp']");
     //Поле Имя
-    private final By firstNameField = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[1]/input");
+    private final By firstNameField = By.xpath(".//div[1]/input[@placeholder ='* Имя']");
     //Поле Фамилия
-    private final By secondNameField = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[2]/input");
+    private final By secondNameField = By.xpath(".//div[2]/input[@placeholder ='* Фамилия']");
     //Поле Адрес
-    private final By addressField = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[3]/input");
+    private final By addressField = By.xpath(".//div[3]/input[@placeholder ='* Адрес: куда привезти заказ']");
     //Поле Станция метро
     private final By metroStationField = By.className("select-search");
     //Станция метро
     private final By metroStationValue  = By.className("Order_Text__2broi");
     //Поле номер телефона
-    private final By phoneNumberFiled = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[5]/input");
+    private final By phoneNumberFiled = By.xpath(".//div[5]/input[@placeholder ='* Телефон: на него позвонит курьер']");
     //Кнопка Далее
-    private final By buttonNext = By.xpath("//*[@id=\"root\"]/div/div[2]/div[3]/button");
+    private final By buttonNext = By.xpath(".//div[3]/button[(@class ='Button_Button__ra12g Button_Middle__1CSJM' and text() ='Далее')]");
     //Поле Когда привезти самокат
-    private final By deliveryDate = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[1]/div[1]/div/input");
+    private final By deliveryDate = By.xpath(".//div/input[@placeholder ='* Когда привезти самокат']");
     // День аренды
-    private final By deliveryDay = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[1]/div[2]/div[2]/div/div/div[2]/div[2]/div[5]/div[5]");
+    private final By deliveryDay = By.xpath(".//div[6]/div[2][text() ='1']");
     //Поле срок аренды
     private final By rentalPeriodField = By.className ("Dropdown-control");
     // Пункт списка
-    private final By elementOfList = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[2]/div[2]/div[4]");
+    private final By elementOfList = By.xpath(".//div[2]/div[4][(@class ='Dropdown-option' and text() ='четверо суток')]");
     //Кнопка Заказать в форме заказ
-    private final By finalOrderButton = By.xpath("//*[@id=\"root\"]/div/div[2]/div[3]/button[2]");
+    private final By finalOrderButton = By.xpath(".//button[2][(@class ='Button_Button__ra12g Button_Middle__1CSJM' and text() ='Заказать')]");
     //Кнопка Да
-    private final By yesButton = By.xpath("/html/body/div/div/div[2]/div[5]/div[2]/button[2]");
+    private final By yesButton = By.xpath(".//button[2][(@class ='Button_Button__ra12g Button_Middle__1CSJM' and text() ='Да')]");
     //Заголовок заказ оформлен
     private final By orderPlaced = By.xpath(".//div[(@class = 'Order_ModalHeader__3FDaJ' and text() ='Заказ оформлен')]");
 

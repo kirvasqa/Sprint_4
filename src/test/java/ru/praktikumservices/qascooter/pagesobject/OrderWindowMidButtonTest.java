@@ -1,21 +1,12 @@
-package ru.praktikum_services.qa_scooter.pages_object;
+package ru.praktikumservices.qascooter.pagesobject;
 
-import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-
 
 @RunWith(Parameterized.class)
-public class OrderWindowUpperButtonTest {
-
-    private WebDriver driver;
-    private OrderWindow objOrderWindow;
+public class OrderWindowMidButtonTest extends TestDefaultParts {
     private final String firstName;
     private final String secondName;
     private final String address;
@@ -27,25 +18,18 @@ public class OrderWindowUpperButtonTest {
                 {"Кирилл", "Васильев", "ул. Пушкина", "+79999999999"}
         };
     }
-    public OrderWindowUpperButtonTest(String firstName, String secondName, String address, String phone) {
+    public OrderWindowMidButtonTest(String firstName, String secondName, String address, String phone) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.address = address;
         this.phone = phone;
-        }
-    @Before
-    public void setUp() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized"); // Этот аргумент не поддерживается в Firefox, можно удалить
-
-        // Инициализируем FirefoxDriver
-        driver = new ChromeDriver(options);
-        driver.get("https://qa-scooter.praktikum-services.ru/");
-        objOrderWindow = new OrderWindow(driver);
     }
-@Test
-public void UpperButtonOrderTest(){
-        objOrderWindow.clickOrderButtonTop();
+
+    @Test
+    public void midButtonOrderTest(){
+        OrderWindow objOrderWindow = new OrderWindow(driver);
+        objOrderWindow.clickAcceptCookieButton();
+        objOrderWindow.clickOrderButtonMid();
         objOrderWindow.setFirstName(firstName);
         objOrderWindow.setSecondNameField(secondName);
         objOrderWindow.setAddressField(address);
@@ -65,12 +49,9 @@ public void UpperButtonOrderTest(){
         objOrderWindow.waitYesButton();
         objOrderWindow.clickYesButton();
 
-    boolean isHeaderVisible;
-    isHeaderVisible = objOrderWindow.isOrderHeaderVisible();
-    Assert.assertTrue("Заголовок должен быть видим на странице", isHeaderVisible);
+        boolean isHeaderVisible;
+        isHeaderVisible = objOrderWindow.isOrderHeaderVisible();
+        Assert.assertTrue("Заголовок должен быть видим на странице", isHeaderVisible);
     }
-    @After
-    public void tearDown() {
-        driver.quit(); // Закрываем браузер
-    }
+
 }

@@ -1,22 +1,17 @@
-package ru.praktikum_services.qa_scooter.pages_object;
+package ru.praktikumservices.qascooter.pagesobject;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class LandingPageScooterTest {
+public class LandingPageScooterTest extends TestDefaultParts {
 
-    private WebDriver driver;
+
     private LandingPageScooter objLandingPageScooter;
     private final int index;
     private final String expectedText;
@@ -42,21 +37,9 @@ public class LandingPageScooterTest {
         this.expectedText = expectedText;
     }
 
-    @Before
-    public void setUp() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized");
-        driver = new ChromeDriver(options);
-        driver.get("https://qa-scooter.praktikum-services.ru/");
-        objLandingPageScooter = new LandingPageScooter(driver);
-
-
-
-    }
-
-
     @Test
     public void faqAccordionScooterTest() {
+        objLandingPageScooter = new LandingPageScooter(driver);
         objLandingPageScooter.waitLoadLandingPageScooter();
         objLandingPageScooter.clickOnAcceptCookieButton();
         objLandingPageScooter.expandFaqSection(index);
@@ -72,8 +55,5 @@ public class LandingPageScooterTest {
     }
 
 
-    @After
-    public void tearDown() {
-        driver.quit(); // Закрываем браузер
-    }
+
 }
